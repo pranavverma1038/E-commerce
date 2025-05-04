@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { items } from "./Data";
 import Products from "./Products";
 
-const SearchItem = () => {
+const SearchItem = ({cart,setCart}) => {
   const [filterData, setFilterData] = useState([]);
   const { term } = useParams();
 
@@ -16,7 +16,7 @@ const SearchItem = () => {
   },[term]) 
 
   return (
-    <Products items={filterData}/>
+    <Products cart={cart} setCart={setCart} items={filterData}/>
   );
 };
 
