@@ -6,7 +6,7 @@ import ProductDetails from './components/ProductDetails'
 import SearchItem from './components/SearchItem'
 import Cart from './components/Cart'
 import { items } from './components/Data'
-
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const [data, setData]= useState([...items])
@@ -14,6 +14,19 @@ const App = () => {
   return (
     <>
       <Router>
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+       
+      />
       <NavBar cart={cart} setData={setData}/>
       <Routes>
         <Route path='/' element={ <Products

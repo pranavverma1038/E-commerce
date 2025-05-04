@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 
 const Products = ({ items, cart, setCart }) => {
   const addToCart = (id, price, title, description, imgSrc) => {
@@ -25,19 +25,7 @@ const Products = ({ items, cart, setCart }) => {
   };
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={1500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-       
-      />
+ 
       <div className="container my-5">
         <div className="row">
           {items.map((product) => {

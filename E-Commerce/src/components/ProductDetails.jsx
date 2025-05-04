@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { items } from "./Data";
 import Products from "./Products";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
+
 
 const ProductDetails = ({cart,setCart}) => {
   const { id } = useParams();
@@ -46,19 +47,7 @@ const ProductDetails = ({cart,setCart}) => {
   return (
     
     <>
-    <ToastContainer
-            position="top-right"
-            autoClose={1500}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-           
-          />
+  
       <div className="container con">
         <div className="img">
           <img src={product.imgSrc} alt="" />
