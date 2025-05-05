@@ -12,11 +12,14 @@ const NavBar = ({ cart,setData }) => {
   const filterByCategory = (category) => {
     const element = items.filter((product) => product.category === category);
     setData(element);
+    navigate('/');
+    
   };
 
   const filterByPrice = (price) => {
     const element = items.filter((product) => product.price >= price);
     setData(element);
+    navigate('/');
   };
 
   const handleSubmit = (e) => {
@@ -27,9 +30,14 @@ const NavBar = ({ cart,setData }) => {
   return (
     <header>
       <div className="nav-bar">
-        <Link to={"/"} className="brand">
+        <div
+        onClick={()=>{
+          setData([...items]);
+          navigate('/');
+        }}
+        className="brand cursor-pointer">
           E-Cart
-        </Link>
+        </div>
         <form onSubmit={handleSubmit} className="search-bar pt-2">
           <input
             value={searchTerm}
@@ -57,8 +65,8 @@ const NavBar = ({ cart,setData }) => {
       { category: 'mobiles', title: 'Mobiles', img: '/mobileimg.jpg' },
       { category: 'laptops', title: 'Laptops', img: '/laptopimg.jpg' },
       { category: 'tablets', title: 'Tablets', img: '/tabletimg.jpg' },
-      { category: 'tablets', title: 'Watch', img: '/earphoneimg.jpg' },
-      { category: 'tablets', title: 'EarPods', img: '/watchimg.jpg' },
+      { category: 'earphones', title: 'EarPods', img: '/earphoneimg.jpg' },
+      { category: 'tablets', title: 'Watches', img: '/watchimg.jpg' },
     ].map((item, index) => (
       <div
         key={index}

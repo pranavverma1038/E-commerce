@@ -80,6 +80,35 @@ export const items =  [
       description: 'Apple MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, ',
       price: '89999',
     },
+    {
+      id: 13,
+      category: 'earphones',
+      title: "Apple AirPods (2nd Gen)",
+      imgSrc: 'https://m.media-amazon.com/images/I/71NTi82uBEL._SL1500_.jpg',
+      amazonLink: 'https://amzn.to/3UpHphm',
+      description: 'Apple AirPods (2nd Generation) with Charging Case',
+      price: '11999',
+    },
+    {
+      id: 14,
+      category: 'earphones',
+      title: "boAt Airdopes 141",
+      imgSrc: 'https://m.media-amazon.com/images/I/61KNJav3S9L._SL1500_.jpg',
+      amazonLink: 'https://amzn.to/3UqsyQu',
+      description: 'boAt Airdopes 141 Bluetooth Truly Wireless in Ear Earbuds with 42H Playtime',
+      price: '1099',
+    },
+    {
+      id: 15,
+      category: 'mobiles',
+      title: "OnePlus Buds Z2",
+      imgSrc: 'https://m.media-amazon.com/images/I/61+Q6Rh3OQL._SL1500_.jpg',
+      amazonLink: 'https://amzn.to/3WzZnYZ',
+      description: 'OnePlus Buds Z2 Bluetooth Truly Wireless Earbuds with Active Noise Cancellation',
+      price: '4999',
+    }
+    
+    
 
 
   ]
