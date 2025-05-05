@@ -30,17 +30,20 @@ const NavBar = ({ cart,setData }) => {
         <Link to={"/"} className="brand">
           E-Cart
         </Link>
-        <form onSubmit={handleSubmit} className="search-bar">
+        <form onSubmit={handleSubmit} className="search-bar pt-2">
           <input
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             type="text"
             placeholder="search-products"
+            className="bg-white text-black "
           />
         </form>
         <Link to={"/cart"} className="cart">
-          <button type="button" className="btn btn-primary position-relative">
-            Cart
+          <button type="button" className="btn btn-primary bg-white position-relative">
+            <img src='/shopping-cart.png'
+            className="w-5 h-5"
+            ></img>
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               {cart.length}
               <span className="visually-hidden">unread messages</span>
@@ -49,7 +52,7 @@ const NavBar = ({ cart,setData }) => {
         </Link>
       </div>
       {location.pathname === '/' && (
-  <div className="bg-purple-100 py-4 px-6 flex flex-wrap justify-between items-center gap-y-4 pl-20 pr-20">
+  <div className="bg-gray-300 py-4 px-6 flex flex-wrap justify-between items-center gap-y-4 pl-20 pr-20">
     {[
       { category: 'mobiles', title: 'Mobiles', img: '/mobileimg.jpg' },
       { category: 'laptops', title: 'Laptops', img: '/laptopimg.jpg' },
@@ -62,7 +65,7 @@ const NavBar = ({ cart,setData }) => {
         onClick={() => filterByCategory(item.category)}
         className="cursor-pointer bg-white rounded-xl shadow-md px-4 py-2 flex flex-col items-center min-w-[80px] hover:bg-purple-200 transition"
       >
-        <img src={item.img} alt={item.title} className=" w-30 h-30 mb-1" />
+        <img src={item.img} alt={item.title} className=" w-35 h-30 mb-1" />
         <span className="text-sm font-medium text-gray-800">{item.title}</span>
       </div>
     ))}
