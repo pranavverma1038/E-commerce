@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { items } from "./Data";
-
+import { useAuth } from "../utils/AuthContext";
 
 const NavBar = ({ cart,setData }) => {
+  const {logoutUser}= useAuth();
 
  const location = useLocation()
   const navigate = useNavigate();
@@ -58,6 +59,9 @@ const NavBar = ({ cart,setData }) => {
             </span>
           </button>
         </Link>
+        <button 
+        onClick={logoutUser}
+        className="bg-white text-black w-20 h-10 rounded">Logout</button>
       </div>
       {location.pathname === '/' && (
   <div className="bg-gray-300 py-4 px-6 flex flex-wrap justify-between items-center gap-y-4 pl-20 pr-20">
