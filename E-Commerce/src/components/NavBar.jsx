@@ -48,35 +48,27 @@ const NavBar = ({ cart,setData }) => {
           </button>
         </Link>
       </div>
-      {location.pathname=='/' && <div className="nav-bar-wrapper">
-        <div className="items">Filter by{"->"}</div>
-        <div className="items" onClick={() => setData(items)}>
-          No filter
-        </div>
-        <div className="items"></div>
-        <div className="items" onClick={() => filterByCategory("mobiles")}>
-          Mobiles
-        </div>
-        <div className="items" onClick={() => filterByCategory("laptops")}>
-          Laptops
-        </div>
-        <div className="items" onClick={() => filterByCategory("tablets")}>
-          Tablets
-        </div>
-        <div className="items" onClick={() => filterByPrice(29999)}>
-          {">="}
-          29999
-        </div>
-        <div className="items" onClick={() => filterByPrice(49999)}>
-          {">="}49999
-        </div>
-        <div className="items" onClick={() => filterByPrice(69999)}>
-          {">="}69999
-        </div>
-        <div className="items" onClick={() => filterByPrice(89999)}>
-          {">="}89999
-        </div>
-      </div>}
+      {location.pathname === '/' && (
+  <div className="bg-purple-100 py-4 px-6 flex flex-wrap justify-between items-center gap-y-4 pl-20 pr-20">
+    {[
+      { category: 'mobiles', title: 'Mobiles', img: '/mobileimg.jpg' },
+      { category: 'laptops', title: 'Laptops', img: '/laptopimg.jpg' },
+      { category: 'tablets', title: 'Tablets', img: '/tabletimg.jpg' },
+      { category: 'tablets', title: 'Watch', img: '/earphoneimg.jpg' },
+      { category: 'tablets', title: 'EarPods', img: '/watchimg.jpg' },
+    ].map((item, index) => (
+      <div
+        key={index}
+        onClick={() => filterByCategory(item.category)}
+        className="cursor-pointer bg-white rounded-xl shadow-md px-4 py-2 flex flex-col items-center min-w-[80px] hover:bg-purple-200 transition"
+      >
+        <img src={item.img} alt={item.title} className=" w-30 h-30 mb-1" />
+        <span className="text-sm font-medium text-gray-800">{item.title}</span>
+      </div>
+    ))}
+  </div>
+)}
+
       
     </header>
   );
