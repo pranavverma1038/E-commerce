@@ -28,7 +28,7 @@ const NavBar = ({ cart, setData }) => {
   return (
     <header className="w-full">
       {/* Main Nav */}
-      <div className="fixed top-0 left-0 w-full z-50 bg-black text-white px-7 py-4 flex flex-wrap items-center justify-between gap-4 ">
+      <div className="fixed top-0 left-0 w-full z-50 bg-black text-white px-7 py-2 flex flex-wrap items-center justify-between gap-4 ">
         
         {/* Logo */}
         <div
@@ -78,7 +78,7 @@ const NavBar = ({ cart, setData }) => {
 
       {/* Categories Section */}
       {location.pathname === '/' && (
-        <div className="mt-20 bg-gray-300 py-4 px-26 flex flex-wrap justify-between items-center gap-4">
+        <div className="mt-13 bg-gray-300 py-4 px-26 flex flex-wrap justify-between items-center gap-4">
           {[
             { category: 'mobiles', title: 'Mobiles', img: '/mobileimg.jpg' },
             { category: 'laptops', title: 'Laptops', img: '/laptopimg.jpg' },
