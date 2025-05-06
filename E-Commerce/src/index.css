@@ -2,13 +2,16 @@
 @import "tailwindcss";
 
 
-
+body {
+  padding-top: 60px; /* Adjust to match the navbar height */
+}
 .nav-bar{
   display: flex;
   justify-content: space-between;
   background-color: black;
   padding: 10px;
   color: white;
+ 
 }
 
 .brand{
@@ -159,3 +162,18 @@ input::placeholder{
         padding: 1em;
       }
 }
+
+.flip-horizontally {
+  transform: scaleX(-1);
+}
+
+@keyframes flip-horizontal {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+
+}
+

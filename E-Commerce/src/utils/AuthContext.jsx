@@ -27,7 +27,7 @@ export const AuthProvider = ({children}) =>{
             setUser(accountDetail)
 
         }catch(error){
-            console.error(error)
+            alert("Inavlid username or Password!")
         }
         setLaoding(false)
     }

@@ -37,7 +37,7 @@ function AppContent() {
         theme="dark"
       />
 
-      {!user && <Header />}
+      
       {user && <NavBar cart={cart} setData={setData} />}
 
       <Routes>

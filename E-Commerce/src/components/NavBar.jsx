@@ -35,7 +35,7 @@ const NavBar = ({ cart,setData }) => {
 
   return (
     <header>
-      <div className="nav-bar">
+      <div className="nav-bar fixed top-0 left-0 w-full z-50 items-center justify-between px-4 py-2 bg-black text-white">
         <div
         onClick={()=>{
           setData([...items]);
@@ -53,6 +53,9 @@ const NavBar = ({ cart,setData }) => {
             className="bg-white text-black "
           />
         </form>
+        <img src='/menu.svg'
+          className="bg-white w-7 h-7 mt-1.5"
+        />
         <Link to={"/cart"} className="cart">
           <button type="button" className="btn btn-primary bg-white position-relative">
             <img src='/shopping-cart.png'
