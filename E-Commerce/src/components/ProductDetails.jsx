@@ -48,7 +48,7 @@ const ProductDetails = ({cart,setCart}) => {
     
     <>
   
-      <div className="container con">
+      <div className="container con pt-10">
         <div className="img">
           <img src={product.imgSrc} alt="" />
         </div>

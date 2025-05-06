@@ -8,6 +8,7 @@ const NavBar = ({ cart, setData }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortByFilter, setSortByFilter] = useState(false)
 
   const filterByCategory = (category) => {
     const element = items.filter((product) => product.category === category);
@@ -25,6 +26,17 @@ const NavBar = ({ cart, setData }) => {
     navigate(`/search/${searchTerm}`);
   };
 
+  const priceFilter=(param)=>{
+    const sortedData=[...items].sort((a,b)=>{
+      return param==='low' ? a.price - b.price 
+      : b.price - a.price
+    })
+    setData(sortedData)
+    setSortByFilter(false)
+    navigate('/')
+    
+  }
+
   return (
     <header className="w-full">
       {/* Main Nav */}
@@ -38,11 +50,13 @@ const NavBar = ({ cart, setData }) => {
           }}
           className="cursor-pointer text-xl font-semibold"
         >
+        
+
+        
           E-Cart
         </div>
-
         {/* Search */}
-        <form onSubmit={handleSubmit} className="flex items-center w-full md:w-auto flex-grow md:flex-grow-0">
+        <form onSubmit={handleSubmit} className="relative flex items-center w-full md:w-auto flex-grow md:flex-grow-0">
           <input
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -51,10 +65,27 @@ const NavBar = ({ cart, setData }) => {
             className="bg-white text-black px-2 py-1 rounded w-full md:w-64"
           />
           <img
+            onClick={()=>setSortByFilter(!sortByFilter)}
             src="/menu.svg"
             className="ml-2 h-7 w-7 bg-white p-1 rounded"
             alt="menu"
           />
+          {sortByFilter && (
+            <div className="absolute top-10 right-0 bg-white text-black rounded shadow-md z-50 w-48">
+              <button
+                onClick={()=>priceFilter('low')}
+                className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+              >
+                Price: Low to High
+              </button>
+              <button
+                onClick={()=>priceFilter('high')}
+                className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+              >
+                Price: High to Low
+              </button>
+            </div>
+          )}
         </form>
 
         {/* Cart + Logout */}
@@ -79,7 +110,7 @@ const NavBar = ({ cart, setData }) => {
       {/* Categories Section */}
       <div className="mt-[150px] md:mt-0"></div>
       {location.pathname === '/' && (
-        <div className="mt-13 bg-gray-300 py-4 px-25 overflow-x-auto md:overflow-visible">
+        <div className="custom-scrollbar mt-13 bg-gray-300 py-4 px-25 overflow-x-auto md:overflow-visible">
   <div className="flex flex-nowrap md:flex-wrap justify-start md:justify-between items-center gap-4 min-w-[720px]">
     {[
       { category: 'mobiles', title: 'Mobiles', img: '/mobileimg.jpg' },

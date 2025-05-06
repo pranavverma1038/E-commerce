@@ -176,3 +176,21 @@ input::placeholder{
 
 }
 
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #a0aec0; 
+  
+}
+
+.custom-scrollbar {
+  scrollbar-width: thick; 
+  scrollbar-color: #a0aec0 transparent;
+}
