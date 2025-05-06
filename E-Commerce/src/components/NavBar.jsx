@@ -23,6 +23,11 @@ const NavBar = ({ cart,setData }) => {
     navigate('/');
   };
 
+  const handleLogout = async () => {
+    await logoutUser();
+    navigate('/login');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate(`/search/${searchTerm}`);
@@ -51,7 +56,7 @@ const NavBar = ({ cart,setData }) => {
         <Link to={"/cart"} className="cart">
           <button type="button" className="btn btn-primary bg-white position-relative">
             <img src='/shopping-cart.png'
-            className="w-5 h-5"
+            className="w-7 h-7 "
             ></img>
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               {cart.length}
@@ -60,7 +65,7 @@ const NavBar = ({ cart,setData }) => {
           </button>
         </Link>
         <button 
-        onClick={logoutUser}
+        onClick={handleLogout}
         className="bg-white text-black w-20 h-10 rounded">Logout</button>
       </div>
       {location.pathname === '/' && (
@@ -77,7 +82,7 @@ const NavBar = ({ cart,setData }) => {
         onClick={() => filterByCategory(item.category)}
         className="cursor-pointer bg-white rounded-xl shadow-md px-4 py-2 flex flex-col items-center min-w-[80px] hover:bg-purple-200 transition"
       >
-        <img src={item.img} alt={item.title} className=" w-35 h-30 mb-1" />
+        <img src={item.img} alt={item.title} className=" w-20 h-20 mb-1" />
         <span className="text-sm font-medium text-gray-800">{item.title}</span>
       </div>
     ))}
