@@ -28,7 +28,7 @@ const NavBar = ({ cart, setData }) => {
   return (
     <header className="w-full">
       {/* Main Nav */}
-      <div className="fixed top-0 left-0 w-full z-50 bg-black text-white px-7 py-2 flex flex-wrap items-center justify-between gap-4 ">
+      <div className="fixed top-0 left-0 w-full z-50 bg-black text-white px-25 py-2 flex flex-wrap items-center justify-between gap-4  ">
         
         {/* Logo */}
         <div
@@ -79,24 +79,27 @@ const NavBar = ({ cart, setData }) => {
       {/* Categories Section */}
       <div className="mt-[150px] md:mt-0"></div>
       {location.pathname === '/' && (
-        <div className="mt-13 bg-gray-300 py-4 px-26 flex flex-wrap justify-between items-center gap-4">
-          {[
-            { category: 'mobiles', title: 'Mobiles', img: '/mobileimg.jpg' },
-            { category: 'laptops', title: 'Laptops', img: '/laptopimg.jpg' },
-            { category: 'tablets', title: 'Tablets', img: '/tabletimg.jpg' },
-            { category: 'earphones', title: 'EarPods', img: '/earphoneimg.jpg' },
-            { category: 'tablets', title: 'Watches', img: '/watchimg.jpg' },
-          ].map((item, index) => (
-            <div
-              key={index}
-              onClick={() => filterByCategory(item.category)}
-              className="cursor-pointer bg-white rounded-xl shadow-md px-4 py-2 flex flex-col items-center min-w-[80px] hover:bg-purple-200 transition"
-            >
-              <img src={item.img} alt={item.title} className="w-20 h-20 mb-1" />
-              <span className="text-sm font-medium text-gray-800">{item.title}</span>
-            </div>
-          ))}
-        </div>
+        <div className="mt-13 bg-gray-300 py-4 px-25 overflow-x-auto md:overflow-visible">
+  <div className="flex flex-nowrap md:flex-wrap justify-start md:justify-between items-center gap-4 min-w-[720px]">
+    {[
+      { category: 'mobiles', title: 'Mobiles', img: '/mobileimg.jpg' },
+      { category: 'laptops', title: 'Laptops', img: '/laptopimg.jpg' },
+      { category: 'tablets', title: 'Tablets', img: '/tabletimg.jpg' },
+      { category: 'earphones', title: 'EarPods', img: '/earphoneimg.jpg' },
+      { category: 'tablets', title: 'Watches', img: '/watchimg.jpg' },
+    ].map((item, index) => (
+      <div
+        key={index}
+        onClick={() => filterByCategory(item.category)}
+        className="cursor-pointer bg-white rounded-xl shadow-md px-4 py-2 flex flex-col items-center min-w-[80px] hover:bg-purple-200 transition"
+      >
+        <img src={item.img} alt={item.title} className="w-20 h-20 mb-1" />
+        <span className="text-sm font-medium text-gray-800">{item.title}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
       )}
     </header>
   );
