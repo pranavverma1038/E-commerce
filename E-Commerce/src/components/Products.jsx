@@ -38,7 +38,7 @@ const Products = ({ items, cart, setCart ,itemsPresent}) => {
       {itemsPresent ? (
         <div className="bg-gray-100 min-h-screen pt-10">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-8 text-center text-gray-800">Products</h2>
+        <h2 className="text-4xl font-bold mb-8 text-center text-gray-800"></h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {items.map((product, index) => (
             <motion.div
@@ -80,7 +80,7 @@ const Products = ({ items, cart, setCart ,itemsPresent}) => {
                     <h1 className="text-2xl font-semibold mb-4">Items From This Category Not Present</h1>
                     <button
                     onClick={()=>{
-                      setItemsPresent(true);
+                      window.location.reload();
                       navigate('/')
                     }}
                      className="btn btn-warning">

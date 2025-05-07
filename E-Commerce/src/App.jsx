@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
-
+import Billing from './components/Billing'
 import NavBar from './components/NavBar'
 import Products from './components/Products'
 import ProductDetails from './components/ProductDetails'
@@ -52,6 +52,7 @@ function AppContent() {
         <Route path="/product/:id" element={<ProductDetails cart={cart} setCart={setCart} />} />
         <Route path="/search/:term" element={<SearchItem cart={cart} setCart={setCart} />} />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+        <Route path="/billing" element={<Billing cart={cart}/>} />
       </Routes>
     </>
   )

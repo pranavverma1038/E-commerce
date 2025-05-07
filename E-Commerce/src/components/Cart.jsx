@@ -1,7 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const Cart = ({ cart, setCart }) => {
+  const navigate = useNavigate()
+
+  const goToBilling = () => {
+    navigate("/billing", { state: { cart } });
+  };
+
   return (
     <>
       <div className="w-full max-w-4xl mx-auto pt-5 px-4">
@@ -35,7 +41,9 @@ const Cart = ({ cart, setCart }) => {
                 </p>
                 <div className="flex justify-center gap-3">
                   <button className="btn btn-primary">₹ {product.price}</button>
-                  <button className="btn btn-warning">Buy Now</button>
+                  <button 
+                  onClick={goToBilling}
+                  className="btn btn-warning">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -45,7 +53,9 @@ const Cart = ({ cart, setCart }) => {
 
       {cart.length !== 0 && (
         <div className="flex justify-center items-center my-5 gap-4">
-          <button className="btn btn-warning">CheckOut</button>
+          <button 
+          onClick={goToBilling}
+          className="btn btn-warning">CheckOut</button>
           <button onClick={() => setCart("")} className="btn btn-danger">
             Clear Cart
           </button>
