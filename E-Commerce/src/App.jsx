@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Billing from './components/Billing'
@@ -18,9 +18,15 @@ import { ToastContainer } from "react-toastify"
 // Inner component that lives *inside* AuthProvider
 function AppContent() {
   const [data, setData] = useState([...items])
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
   const { user } = useAuth()
   const [itemsPresent, setItemsPresent] = useState(true)
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <>

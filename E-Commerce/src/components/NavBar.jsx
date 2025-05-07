@@ -9,7 +9,6 @@ const NavBar = ({ cart, setData ,setItemsPresent }) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [sortByFilter, setSortByFilter] = useState(false)
-  
 
   const filterByCategory = (category) => {
     const element = items.filter((product) => product.category === category);
