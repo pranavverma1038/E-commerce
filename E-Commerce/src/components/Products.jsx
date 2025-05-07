@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import Footer from "./Footer";
 
-const Products = ({ items, cart, setCart }) => {
+const Products = ({ items, cart, setCart ,itemsPresent}) => {
   const [hasAnimated, setHasAnimated] = useState(false);
-
+  const navigate = useNavigate()
   useEffect(() => {
     setHasAnimated(true);
   }, []);
@@ -34,7 +34,9 @@ const Products = ({ items, cart, setCart }) => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen pt-10">
+    <>
+      {itemsPresent ? (
+        <div className="bg-gray-100 min-h-screen pt-10">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold mb-8 text-center text-gray-800">Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
@@ -73,7 +75,27 @@ const Products = ({ items, cart, setCart }) => {
       </div>
       <Footer />
     </div>
+      ) : (
+        <div className="text-center mt-10">
+                    <h1 className="text-2xl font-semibold mb-4">Items From This Category Not Present</h1>
+                    <button
+                    onClick={()=>{
+                      setItemsPresent(true);
+                      navigate('/')
+                    }}
+                     className="btn btn-warning">
+                      Continue Shopping...
+                    </button>
+                  </div>
+      )
+      }
+    </>
+    
   );
 };
 
 export default Products;
+
+
+
+

@@ -7,7 +7,6 @@ import Products from './components/Products'
 import ProductDetails from './components/ProductDetails'
 import SearchItem from './components/SearchItem'
 import Cart from './components/Cart'
-import Header from './components/Header'
 import Profile from './pages/Profile'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -21,6 +20,7 @@ function AppContent() {
   const [data, setData] = useState([...items])
   const [cart, setCart] = useState([])
   const { user } = useAuth()
+  const [itemsPresent, setItemsPresent] = useState(true)
 
   return (
     <>
@@ -38,14 +38,14 @@ function AppContent() {
       />
 
       
-      {user && <NavBar cart={cart} setData={setData} />}
+      {user && <NavBar cart={cart} setData={setData} setItemsPresent={setItemsPresent}/>}
 
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
         <Route element={<PrivateRoutes />}>
-          <Route path="/" element={<Products cart={cart} setCart={setCart} items={data} />} />
+          <Route path="/" element={<Products cart={cart} setCart={setCart} items={data} itemsPresent={itemsPresent}/>} />
           <Route path="/profile" element={<Profile />} />
         </Route>
 

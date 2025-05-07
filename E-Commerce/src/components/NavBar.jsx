@@ -3,15 +3,17 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { items } from "./Data";
 import { useAuth } from "../utils/AuthContext";
 
-const NavBar = ({ cart, setData }) => {
+const NavBar = ({ cart, setData ,setItemsPresent }) => {
   const { logoutUser } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [sortByFilter, setSortByFilter] = useState(false)
+  
 
   const filterByCategory = (category) => {
     const element = items.filter((product) => product.category === category);
+    setItemsPresent(element.length !== 0);
     setData(element);
     navigate('/');
   };
@@ -50,9 +52,6 @@ const NavBar = ({ cart, setData }) => {
           }}
           className="cursor-pointer text-xl font-semibold"
         >
-        
-
-        
           E-Cart
         </div>
         {/* Search */}
@@ -117,7 +116,7 @@ const NavBar = ({ cart, setData }) => {
       { category: 'laptops', title: 'Laptops', img: '/laptopimg.jpg' },
       { category: 'tablets', title: 'Tablets', img: '/tabletimg.jpg' },
       { category: 'earphones', title: 'EarPods', img: '/earphoneimg.jpg' },
-      { category: 'tablets', title: 'Watches', img: '/watchimg.jpg' },
+      { category: 'watches', title: 'Watches', img: '/watchimg.jpg' },
     ].map((item, index) => (
       <div
         key={index}
