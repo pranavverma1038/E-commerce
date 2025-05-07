@@ -1,14 +1,25 @@
-// Billing.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getCartItems } from "./getCartItems";
+import { useAuth } from "../utils/AuthContext";
 
 
-const Billing = ({cart}) => {
-  
+
+const Billing = () => {
+  const { user } = useAuth();
+  const [cart, setCart] = useState([]);
 
   let total=0;
   for(let i=0; i<cart.length;i++){
     total+= Number(cart[i].price)
   }
+
+  useEffect(()=>{
+    const fetchCart= async()=>{
+      const items = await getCartItems(user.$id);
+      setCart(items)
+    };
+    fetchCart()
+  },[user])
 
   return (
     <div className="max-w-3xl mx-auto p-6 mt-20">
@@ -22,7 +33,7 @@ const Billing = ({cart}) => {
             
             <p className="text-black font-bold">₹{item.price}</p>
             </div>
-            <img src={item.imgSrc} className="ml-6 w-40 h-40 object-contain"></img>  
+            <img src={item.image} className="ml-6 w-40 h-40 object-contain"></img>  
 
           </div>
         ))}

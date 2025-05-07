@@ -194,3 +194,17 @@ input::placeholder{
   scrollbar-width: thick; 
   scrollbar-color: #a0aec0 transparent;
 }
+
+
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.zoom-animation {
+  animation: zoomInOut 2s ease-in-out infinite;
+}

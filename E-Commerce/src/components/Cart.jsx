@@ -25,12 +25,12 @@ const Cart = ({ cart, setCart }) => {
 const clearCart = async () => {
   try {
     if (user) {
-      // Remove all cart items from Appwrite
+      
       const cartItems = await getCartItems(user.$id);
       for (const item of cartItems) {
         await databases.deleteDocument(DATABASE_ID, COLLECTION_ID, item.$id);
       }
-      // Clear cart state
+      
       setCart([]);
     }
   } catch (error) {

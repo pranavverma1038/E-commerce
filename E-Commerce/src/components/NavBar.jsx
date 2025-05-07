@@ -121,7 +121,7 @@ const NavBar = ({ cart, setData ,setItemsPresent }) => {
       <div
         key={index}
         onClick={() => filterByCategory(item.category)}
-        className="cursor-pointer bg-white rounded-xl shadow-md px-4 py-2 flex flex-col items-center min-w-[80px] hover:bg-purple-200 transition"
+        className="cursor-pointer bg-white rounded-xl shadow-md px-4 py-2 flex flex-col items-center min-w-[80px] hover:bg-purple-200 transition zoom-animation"
       >
         <img src={item.img} alt={item.title} className="w-20 h-20 mb-1" />
         <span className="text-sm font-medium text-gray-800">{item.title}</span>
