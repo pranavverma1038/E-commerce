@@ -16,7 +16,7 @@ const SearchItem = ({cart,setCart}) => {
   },[term]) 
 
   return (
-    <Products cart={cart} setCart={setCart} items={filterData}/>
+    <Products cart={cart} setCart={setCart} items={filterData} itemsPresent={filterData.length > 0}/>
   );
 };
 

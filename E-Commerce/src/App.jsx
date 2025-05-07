@@ -15,7 +15,6 @@ import { AuthProvider, useAuth } from './utils/AuthContext'
 import { items } from './components/Data'
 import { ToastContainer } from "react-toastify"
 
-// Inner component that lives *inside* AuthProvider
 function AppContent() {
   const [data, setData] = useState([...items])
   const [cart, setCart] = useState(() => {
