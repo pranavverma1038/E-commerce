@@ -48,7 +48,7 @@ const ProductDetails = ({cart,setCart}) => {
     
     <>
   
-      <div className="container con pt-10">
+      <div className="category-container container con pt-10">
         <div className="img">
           <img src={product.imgSrc} alt="" />
         </div>
@@ -72,7 +72,7 @@ const ProductDetails = ({cart,setCart}) => {
                     </button>
         </div>
       </div>
-      <Products cart={cart} setCart={setCart} items={relatedProducts}/>
+      <Products cart={cart} setCart={setCart} items={relatedProducts} itemsPresent={relatedProducts.length > 0}/>
     </>
   );
 };

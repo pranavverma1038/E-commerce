@@ -208,3 +208,14 @@ input::placeholder{
 .zoom-animation {
   animation: zoomInOut 2s ease-in-out infinite;
 }
+
+@media (max-width: 800px) {
+  .category-container {
+    margin-top: 160px;
+  }
+
+  .category-item {
+    min-width: 100px;
+    margin: 8px;
+  }
+}

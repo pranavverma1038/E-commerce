@@ -113,7 +113,7 @@ const NavBar = ({ cart, setData, setItemsPresent }) => {
         <div className="mt-[50px]"></div>
       )}
       {location.pathname === "/" && (
-        <div className="custom-scrollbar mt-13 bg-gray-300 py-4 px-25 overflow-x-auto md:overflow-visible">
+        <div className="category-container custom-scrollbar mt-13 bg-gray-300 py-4 px-25 overflow-x-auto md:overflow-visible">
           <div className="flex flex-nowrap md:flex-wrap justify-start md:justify-between items-center gap-4 min-w-[720px]">
             {[
               { category: "mobiles", title: "Mobiles", img: "/mobileimg.jpg" },
