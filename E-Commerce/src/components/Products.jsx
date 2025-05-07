@@ -3,8 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import Footer from "./Footer";
+import { useAuth } from "../utils/AuthContext";
+import { saveCartItem } from "./saveCartItems";
 
 const Products = ({ items, cart, setCart ,itemsPresent}) => {
+  const {user} = useAuth()
   const [hasAnimated, setHasAnimated] = useState(false);
   const navigate = useNavigate()
   useEffect(() => {
@@ -15,6 +18,9 @@ const Products = ({ items, cart, setCart ,itemsPresent}) => {
     const obj = { id, price, title, description, imgSrc };
     setCart([...cart, obj]);
     toast.success("Item Added To Cart");
+    if (user) {
+      saveCartItem(obj, user.$id); // Send to backend
+    }
   };
 
   const cardVariant = {
