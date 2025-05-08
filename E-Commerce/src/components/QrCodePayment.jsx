@@ -28,7 +28,7 @@ const QrCodePayment = () => {
     <div className="max-w-3xl mx-auto p-6 mt-20">
       <h1 className="text-3xl font-bold mb-6 text-center">Payment Gateway</h1>
 
-      <div className="mt-6 text-right text-2xl font-bold text-center">Total: ₹{total}</div>
+      <div className="mt-6  text-2xl font-bold text-center">Total: ₹{total}</div>
 
       {!isMobileDevice && qrSrc && (
         <div className="mt-10 text-center">
