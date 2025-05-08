@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation} from 'react-router-dom';
-
+import conf from '../conf/conf';
 
 const QrCodePayment = () => {
   const location = useLocation();
   const { cart = [], total = 0 } = location.state || {};
   const [qrSrc, setQrSrc] = useState('');
   const [isMobileDevice, setIsMobileDevice] = useState(false);
-  const upiId = "pranav2000verma@oksbi";
-  const payeeName = "Pranav Verma";
+  const upiId = conf.upi_ID;
+  const payeeName = "E-Cart";
 
   useEffect(() => {
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -25,7 +25,7 @@ const QrCodePayment = () => {
   
 
   return (
-    <div className="max-w-3xl mx-auto p-6 mt-20">
+    <div className="max-w-3xl mx-auto p-6 mt-20 category-container">
       <h1 className="text-3xl font-bold mb-6 text-center">Payment Gateway</h1>
 
       <div className="mt-6  text-2xl font-bold text-center">Total: ₹{total}</div>

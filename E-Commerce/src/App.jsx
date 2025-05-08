@@ -7,7 +7,6 @@ import Products from './components/Products'
 import ProductDetails from './components/ProductDetails'
 import SearchItem from './components/SearchItem'
 import Cart from './components/Cart'
-import Profile from './pages/Profile'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import PrivateRoutes from './utils/PrivateRoutes'
@@ -55,7 +54,6 @@ function AppContent() {
 
         <Route element={<PrivateRoutes />}>
           <Route path="/" element={<Products cart={cart} setCart={setCart} items={data} itemsPresent={itemsPresent}/>} />
-          <Route path="/profile" element={<Profile />} />
         </Route>
 
         <Route path="/product/:id" element={<ProductDetails cart={cart} setCart={setCart} />} />

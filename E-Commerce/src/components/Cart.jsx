@@ -3,10 +3,12 @@ import { Link,useNavigate } from "react-router-dom";
 import { getCartItems } from "./getCartItems";
 import { useAuth } from "../utils/AuthContext";
 import { databases } from "../appwriteConfig";
+import conf from "../conf/conf";
+
 
 const Cart = ({ cart, setCart }) => {
-  const DATABASE_ID = "681baba8001ced0a4551";
-  const COLLECTION_ID = "681babce002740e4e9af";
+  const DATABASE_ID = conf.appwriteDatabaseId;
+  const COLLECTION_ID = conf.appwriteCollectionId;
   const navigate = useNavigate()
   const {user} = useAuth();
   const goToBilling = () => {

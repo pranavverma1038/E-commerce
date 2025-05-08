@@ -1,8 +1,9 @@
 import { databases } from "../appwriteConfig";
 import { Query } from "appwrite";
+import conf from "../conf/conf";
 
-const DATABASE_ID = "681baba8001ced0a4551";
-const COLLECTION_ID = "681babce002740e4e9af";
+const DATABASE_ID = conf.appwriteDatabaseId;
+const COLLECTION_ID = conf.appwriteCollectionId;
 
 export const getCartItems = async (userId) => {
   try {
