@@ -26,7 +26,7 @@ const Billing = () => {
       <h1 className="text-3xl font-bold mb-6 text-center">Billing Summary</h1>
       <div className="space-y-4">
         {cart.map((item, index) => (
-          <div key={index} className="flex border p-4 rounded-lg shadow-sm bg-white">
+          <div key={index} className="flex border p-4 rounded-lg shadow-sm bg-white mt-10">
           <div className="flex-1">
           <h2 className="text-xl font-semibold">{item.title}</h2>
             <p className="text-gray-600">{item.description}</p>

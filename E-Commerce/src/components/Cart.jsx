@@ -21,7 +21,7 @@ const Cart = ({ cart, setCart }) => {
     }
   };
   loadCart();
-}, [user]);
+}, [user,cart]);
 const clearCart = async () => {
   try {
     if (user) {
@@ -37,10 +37,24 @@ const clearCart = async () => {
     console.error("Failed to clear cart:", error);
   }
 };
-
+  const clearItem = async(product)=>{
+    try{
+      if(user){
+        const cartItems= await getCartItems(user.$id);
+        const itemToRemove = cartItems.find((item)=>item.productId === product.productId)
+        if(itemToRemove){
+          await databases.deleteDocument(DATABASE_ID, COLLECTION_ID,itemToRemove.$id)
+        }
+        const updateCart = cart.filter((item)=>item.product!==product.productId);
+        setCart(updateCart)
+    }
+  }catch(error){
+      console.error("Failed to remove item",error);
+  }
+  }
   return (
     <>
-      <div className="w-full max-w-4xl mx-auto pt-5 px-4">
+      <div className="w-full max-w-4xl mx-auto pt-5 px-4 category-container">
         {cart.length === 0 ? (
           <div className="text-center mt-10">
             <h1 className="text-2xl font-semibold mb-4">Your Cart Is Empty</h1>
@@ -74,6 +88,10 @@ const clearCart = async () => {
                   <button 
                   onClick={goToBilling}
                   className="btn btn-warning">Buy Now</button>
+                  <button 
+                  onClick={()=>clearItem(product)}
+                  className="btn btn-danger">Clear Item</button>
+
                 </div>
               </div>
             </div>
