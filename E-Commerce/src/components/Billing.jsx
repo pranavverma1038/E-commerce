@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { getCartItems } from "./getCartItems";
 import { useAuth } from "../utils/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const Billing = () => {
   const { user } = useAuth();
   const [cart, setCart] = useState([]);
-
+  const navigate = useNavigate()
   let total=0;
   for(let i=0; i<cart.length;i++){
     total+= Number(cart[i].price)
@@ -20,6 +22,13 @@ const Billing = () => {
     };
     fetchCart()
   },[user])
+  const handleRedirectToPayment = () => {
+    const total = cart.reduce((acc, item) => acc + Number(item.price), 0);
+    navigate("/payment-gateway", { state: { cart, total } });
+  };
+  useEffect(() => {
+    console.log("Payment page loaded");
+  }, []);
 
   return (
     <div className="max-w-3xl mx-auto p-6 mt-20">
@@ -41,8 +50,13 @@ const Billing = () => {
       <div className="mt-6 text-right text-2xl font-bold">
         Total: ₹{total}
       </div>
-     <div className="flex justify-center"> 
-        <button className="flex bg-green-300 w-15 h-10 rounded px-3 py-2 hover:bg-green-600">Pay</button>
+     <div className="flex justify-center">
+     <button
+          onClick={handleRedirectToPayment} 
+          className="flex bg-green-300 w-15 h-10 rounded px-3 py-2 hover:bg-green-600"
+        >
+          Pay
+        </button>
     </div>
     </div>
   );

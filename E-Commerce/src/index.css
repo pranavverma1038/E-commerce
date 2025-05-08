@@ -209,7 +209,7 @@ input::placeholder{
   animation: zoomInOut 2s ease-in-out infinite;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 770px) {
   .category-container {
     margin-top: 160px;
   }

@@ -14,6 +14,10 @@ import PrivateRoutes from './utils/PrivateRoutes'
 import { AuthProvider, useAuth } from './utils/AuthContext'
 import { items } from './components/Data'
 import { ToastContainer } from "react-toastify"
+import QrCodePayment from './components/QrCodePayment'
+
+
+
 
 function AppContent() {
   const [data, setData] = useState([...items])
@@ -57,7 +61,8 @@ function AppContent() {
         <Route path="/product/:id" element={<ProductDetails cart={cart} setCart={setCart} />} />
         <Route path="/search/:term" element={<SearchItem cart={cart} setCart={setCart} />} />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
-        <Route path="/billing" element={<Billing cart={cart}/>} />
+        <Route path="/billing" element={<Billing/>} />
+        <Route path="/payment-gateway" element={<QrCodePayment />} />
       </Routes>
     </>
   )
