@@ -31,7 +31,7 @@ const Billing = () => {
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto p-6 mt-20">
+    <div className="max-w-3xl mx-auto p-6 mt-20 category-container">
       <h1 className="text-3xl font-bold mb-6 text-center">Billing Summary</h1>
       <div className="space-y-4">
         {cart.map((item, index) => (
